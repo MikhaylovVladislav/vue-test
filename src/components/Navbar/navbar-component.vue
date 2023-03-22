@@ -1,18 +1,19 @@
 <template>
   <div class="menu">
     <div>
-      <a href="#">Моя страница</a>
+      <router-link to="/profile">Моя страница</router-link>
     </div>
     <div>
-      <a href="#">Новости</a>
+      <router-link to="/news">Новости</router-link>
     </div>
     <div>
-      <a href="#">Мессенджер</a>
+      <router-link to="/messenger">Мессенджер</router-link>
     </div>
     <div>
-      <a href="#">Друзья</a>
+      <router-link to="/friends">Друзья</router-link>
     </div>
   </div>
+
 </template>
 
 <script>

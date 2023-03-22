@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.content">
-    <router-view></router-view>
+    <div>News</div>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
 
 <style module>
 .content{
-  background-color:saddlebrown;
-  height: 100px;
+  background-color:rebeccapurple;
+  height: 220px;
 }
 </style>
