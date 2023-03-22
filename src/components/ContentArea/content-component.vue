@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>CONTENTarea</h1>
+  <div :class="$style.content">
+    <div>CONTENT</div>
   </div>
 </template>
 
@@ -10,6 +10,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style module>
+.content{
+  background-color:saddlebrown;
+  height: 100px;
+}
 </style>

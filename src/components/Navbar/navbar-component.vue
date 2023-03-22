@@ -20,6 +20,10 @@ export default {
   name: 'navbar-menu'
 }
 </script>
-
 <style>
+.menu{
+  background-color: aqua;
+  height: 200px;
+  padding: 10px;
+}
 </style>

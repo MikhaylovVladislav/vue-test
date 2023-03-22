@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.header">
-    <h1>{{ msg }}</h1>
+    <div>{{ msg }}</div>
   </div>
 </template>
 
@@ -16,5 +16,6 @@ export default {
 <style module>
 .header {
   background-color: blue;
+  height: 40px;
 }
 </style>
