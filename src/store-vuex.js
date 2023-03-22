@@ -4,21 +4,21 @@ import Vue from 'vue'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  state:{
-    count:0,
+  state: {
+    count: 0,
     name: 'Vladds'
   },
-  mutations:{
-    incriment(state){
-      state.count++;
+  mutations: {
+    incriment (state) {
+      state.count++
     }
   },
-  actions:{
-    increment(context){
-      context.commit('incriment');
+  actions: {
+    increment (context) {
+      context.commit('incriment')
     }
   },
-  getters:{
+  getters: {
     count: state => state.count,
     name: state => state.name
   }
