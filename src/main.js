@@ -4,7 +4,7 @@ import profileComponent from './components/ContentArea/profile-component/profile
 import newsComponent from './components/ContentArea/news-component/news-component.vue'
 import messengerComponent from './components/ContentArea/messenger-component/messenger-component.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import store from '@/store-vuex'
+import store from '@/store'
 
 const router = createRouter({
   history: createWebHistory(),
