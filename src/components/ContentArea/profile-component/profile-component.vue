@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.content">
     <div>Profile</div>
-    <profile-info name="Vladis" location="Ufa" status="good day"/>
+    <profile-info name2="Vladis" location="Ufa" status="good day"/>
   </div>
 </template>
 

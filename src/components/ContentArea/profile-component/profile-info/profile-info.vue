@@ -1,17 +1,20 @@
 <template>
-  <div>{{name}}</div>
+  <div>{{getName}}</div>
   <div>{{location}}</div>
   <div>{{status}}</div>
 </template>
 <script>
 
+import { mapGetters } from 'vuex'
+
 export default ({
-  name: 'profile-info',
+  computed: { ...mapGetters(['getName']) },
   props: {
-    name: String,
+    name2: String,
     location: String,
     status: String
-  }
+  },
+  name: 'profile-info'
 })
 </script>
 <style>

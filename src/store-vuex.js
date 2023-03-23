@@ -1,26 +1,17 @@
-import Vuex from 'vuex'
-import Vue from 'vue'
+import { createStore } from 'vuex'
 
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
-  state: {
-    count: 0,
-    name: 'Vladds'
-  },
-  mutations: {
-    incriment (state) {
-      state.count++
+const store = createStore({
+  modules: {
+    profilePage: {
+      state: {
+        count: 0,
+        name: 'Vladds'
+      },
+      getters: {
+        count: state => state.count,
+        getName: state => state.name
+      }
     }
-  },
-  actions: {
-    increment (context) {
-      context.commit('incriment')
-    }
-  },
-  getters: {
-    count: state => state.count,
-    name: state => state.name
   }
 })
 

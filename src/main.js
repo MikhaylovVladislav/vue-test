@@ -4,6 +4,7 @@ import profileComponent from './components/ContentArea/profile-component/profile
 import newsComponent from './components/ContentArea/news-component/news-component.vue'
 import messengerComponent from './components/ContentArea/messenger-component/messenger-component.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import store from '@/store-vuex'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,4 +14,5 @@ const router = createRouter({
     { path: '/messenger', component: messengerComponent }
   ]
 })
-createApp(App).use(router).mount('#app')
+
+createApp(App).use(store).use(router).mount('#app')
