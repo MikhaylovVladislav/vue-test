@@ -2,7 +2,7 @@
   <div>
     <div>Мои посты</div>
     <div>
-      <textarea @input='updateText' v-model="postText"></textarea>
+      <textarea @input='onUpdateText' v-model="postText"></textarea>
       <button @click='onAddPost'>Отправить</button>
       <p>{{postText}} </p>
     </div>
@@ -20,7 +20,7 @@ export default ({
   },
   methods: {
     ...mapActions(['updateEditPost', 'addNewPost']),
-    updateText (event) {
+    onUpdateText (event) {
       const edText = event.target.value
       this.updateEditPost(edText)
     },
