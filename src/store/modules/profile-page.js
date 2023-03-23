@@ -19,11 +19,22 @@ const getters = ({
 const actions = ({
   updateEditPost ({ commit }, text) {
     commit('updateEditPost', text)
+  },
+  addNewPost ({ commit }) {
+    commit('addNewPost')
   }
 })
 const mutations = ({
   updateEditPost (state, editText) {
     state.editPost = editText
+  },
+  addNewPost (state) {
+    state.posts.push({
+      id: state.posts.length + 1,
+      postText: state.editPost,
+      countLike: 0
+    })
+    state.editPost = ''
   }
 })
 export default {

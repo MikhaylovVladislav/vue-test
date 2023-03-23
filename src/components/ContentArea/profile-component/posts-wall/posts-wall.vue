@@ -3,7 +3,7 @@
     <div>Мои посты</div>
     <div>
       <textarea @input='updateText' v-model="postText"></textarea>
-      <button>Отправить</button>
+      <button @click='onAddPost'>Отправить</button>
       <p>{{postText}} </p>
     </div>
     <post v-for="post in posts" :key="post.id" :postText="post.postText" :countLike="post.countLike"/>
@@ -19,10 +19,13 @@ export default ({
     ...mapGetters({ postText: 'getEditPost', posts: 'getPosts' })
   },
   methods: {
-    ...mapActions(['updateEditPost']),
+    ...mapActions(['updateEditPost', 'addNewPost']),
     updateText (event) {
       const edText = event.target.value
       this.updateEditPost(edText)
+    },
+    onAddPost () {
+      this.addNewPost()
     }
   }
 })
