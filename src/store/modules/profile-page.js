@@ -4,6 +4,10 @@ const state = () => ({
     id: 1,
     postText: 'tttteeesssttt',
     countLike: 15
+  }, {
+    id: 2,
+    postText: 'asdasd',
+    countLike: 10
   }],
   editPost: ''
 })
