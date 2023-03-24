@@ -22,3 +22,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+http://192.168.1.49:8080 => http://192.168.1.49:3000  (also localhost)
