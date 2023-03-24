@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'content-component'
+  name: 'news-component'
 }
 </script>
 

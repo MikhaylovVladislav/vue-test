@@ -10,7 +10,7 @@
 import ProfileInfo from '@/components/ContentArea/profile-component/profile-info/profile-info.vue'
 import PostsWall from '@/components/ContentArea/profile-component/posts-wall/posts-wall.vue'
 export default {
-  name: 'content-component',
+  name: 'profile-component',
   components: {
     ProfileInfo,
     PostsWall

@@ -12,6 +12,9 @@
     <div>
       <router-link to="/friends">Друзья</router-link>
     </div>
+    <div>
+      <router-link to="/users">Пользователи</router-link>
+    </div>
   </div>
 
 </template>
