@@ -1,7 +1,11 @@
 <template>
   <div :class="$style.content">
-    <div>{{name}}</div>
-    <div>assa</div>
+    <div>ava</div>
+    <div :class="$style.info">
+      <div>{{ name }}</div>
+      <div>{{status}}</div>
+      <div><button>Добавить в друзья</button></div>
+    </div>
   </div>
 </template>
 
@@ -9,14 +13,19 @@
 export default {
   name: 'user-item',
   props: {
-    name: String
+    name: String,
+    status: String
   }
 }
 </script>
 
 <style module>
-.content{
-  background-color:rebeccapurple;
-  height: 220px;
+.content {
+  background-color: antiquewhite;
+}
+.info{
+  background-color: silver;
+  padding: 10px;
+  color: saddlebrown;
 }
 </style>
