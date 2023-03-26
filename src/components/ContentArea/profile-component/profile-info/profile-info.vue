@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img alt="check" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP39OTc9h5ih7RH4EytUjjCrtJs0f4XR56vU_nOGTAA&s"/>
+    <img alt="check" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP39OTc9h5ih7RH4EytUjjCrtJs0f4XR56vU_nOGTAA&s" />
   </div>
   <div>{{ getName }}</div>
   <div>{{ location }}</div>

@@ -3,7 +3,7 @@
     <div>
       <pages v-for="page in pageCount" :key="page" :num="page" :onChangePage="onChangePage"/>
     </div>
-    <user-item v-for="user in users" :key="user.id" :name="user.name" :status="user.status"/>
+    <user-item v-for="user in users" :key="user.id" :name="user.name" :status="user.status" :smallPhotos="checkPhoto(user.photos.small)" />
   </div>
 </template>
 
@@ -40,6 +40,10 @@ export default {
       setCountUsers: 'setCountUsers',
       setCurrentPage: 'setCurrentPage'
     }),
+    checkPhoto (photo) {
+      const defPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP39OTc9h5ih7RH4EytUjjCrtJs0f4XR56vU_nOGTAA&s'
+      return photo !== null ? photo : defPhoto
+    },
     getAllUsers (page, count) {
       UsersAPI.getUsers(page, count).then(data => {
         this.setUsers(data.items)

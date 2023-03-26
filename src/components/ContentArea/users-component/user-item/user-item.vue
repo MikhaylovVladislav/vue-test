@@ -1,10 +1,12 @@
 <template>
   <div :class="$style.content">
-    <div>ava</div>
+    <div><img :class="$style.smallAva" :src=smallPhotos alt="Photo"/></div>
     <div :class="$style.info">
       <div>{{ name }}</div>
-      <div>{{status}}</div>
-      <div><button>Добавить в друзья</button></div>
+      <div>{{ status }}</div>
+      <div>
+        <button>Добавить в друзья</button>
+      </div>
     </div>
   </div>
 </template>
@@ -14,7 +16,9 @@ export default {
   name: 'user-item',
   props: {
     name: String,
-    status: String
+    status: String,
+    smallPhotos: String
+
   }
 }
 </script>
@@ -23,9 +27,15 @@ export default {
 .content {
   background-color: antiquewhite;
 }
-.info{
+
+.info {
   background-color: silver;
   padding: 10px;
   color: saddlebrown;
+}
+
+.smallAva {
+  width: 80px;
+  height: 80px;
 }
 </style>
