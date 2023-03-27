@@ -5,7 +5,7 @@
       <div>{{ name }}</div>
       <div>{{ status }}</div>
       <div>
-        <button>Добавить в друзья</button>
+        <button @click="clickFollowBtn">{{ isFollowMessage }}</button>
       </div>
     </div>
   </div>
@@ -17,8 +17,23 @@ export default {
   props: {
     name: String,
     status: String,
-    smallPhotos: String
-
+    smallPhotos: String,
+    isFollowMessage: String,
+    userId: Number,
+    isFollowed: Boolean,
+    toggleClickFollowBtn: {
+      type: Function
+    },
+    onChangeFollow: {
+      type: Function
+    }
+  },
+  computed: {
+    clickFollowBtn () {
+      return this.toggleClickFollowBtn(this.userId, this.isFollowed)
+    }
+  },
+  updated () {
   }
 }
 </script>

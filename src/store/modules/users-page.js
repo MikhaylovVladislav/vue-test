@@ -8,7 +8,8 @@ const getters = ({
   getCurrentPage: state => state.currentPage,
   getUsers: state => state.users,
   getUsersTotalCount: state => state.totalCount,
-  getPageSize: state => state.pageSize
+  getPageSize: state => state.pageSize,
+  getFollowed: state => state.users.followed
 })
 const actions = ({
   setUsers ({ commit }, users) {
@@ -19,6 +20,9 @@ const actions = ({
   },
   setCurrentPage ({ commit }, page) {
     commit('setCurrentPage', page)
+  },
+  toggleSetFollow ({ commit }, bool) {
+    commit('toggleSetFollow', bool)
   }
 })
 
@@ -31,6 +35,9 @@ const mutations = ({
   },
   setCurrentPage (state, page) {
     state.currentPage = page
+  },
+  toggleSetFollow (state, bool) {
+    state.users.followed = bool
   }
 })
 export default {
