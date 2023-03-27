@@ -3,7 +3,10 @@
     <div>
       <pages v-for="page in pageCount" :key="page" :num="page" :onChangePage="onChangePage"/>
     </div>
-    <user-item v-for="user in users" :key="user.id" :userId="user.id" :name="user.name" :status="user.status" :smallPhotos="checkPhoto(user.photos.small)" :isFollowed="user.followed" :isFollowMessage="isFollow(user.followed)" :toggleClickFollowBtn="toggleClickFollowBtn" :onChangeFollow="onChangeFollow"/>
+    <user-item v-for="user in users" :key="user.id" :userId="user.id" :name="user.name" :status="user.status"
+               :smallPhotos="checkPhoto(user.photos.small)" :isFollowed="user.followed"
+               :isFollowMessage="isFollow(user.followed)" :toggleClickFollowBtn="toggleClickFollowBtn"
+               :onChangeFollow="onChangeFollow" :statusRequest="test(user.id)"/>
   </div>
 </template>
 
@@ -12,6 +15,7 @@ import userItem from './user-item/user-item.vue'
 import { UsersAPI } from '@/api/api'
 import { mapActions, mapGetters } from 'vuex'
 import pages from '@/components/ContentArea/users-component/pages.vue'
+
 export default {
   name: 'users-component',
   components: {
@@ -24,7 +28,8 @@ export default {
       usersCount: 'getUsersTotalCount',
       pageSize: 'getPageSize',
       currentPage: 'getCurrentPage',
-      followed: 'getFollowed'
+      followed: 'getFollowed',
+      getStatusRequest: 'getStatusRequest'
     }),
     pageCount (usersCount, pageSize) {
       const pages = []
@@ -38,7 +43,9 @@ export default {
     ...mapActions({
       setUsers: 'setUsers',
       setCountUsers: 'setCountUsers',
-      setCurrentPage: 'setCurrentPage'
+      setCurrentPage: 'setCurrentPage',
+      toggleSetFollow: 'toggleSetFollow',
+      setStatusRequest: 'setStatusRequest'
     }),
     checkPhoto (photo) {
       const defPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP39OTc9h5ih7RH4EytUjjCrtJs0f4XR56vU_nOGTAA&s'
@@ -58,22 +65,24 @@ export default {
       return isFollowing ? 'Убрать из друзей' : 'Добавить в друзья'
     },
     toggleClickFollowBtn (userId, isFollowing) {
+      this.setStatusRequest(userId)
       if (isFollowing) {
-        UsersAPI.unfollowUser(userId).then(data => this.getAllUsers(this.currentPage, this.pageSize))
+        UsersAPI.unfollowUser(userId)
+          .then(data => this.setStatusRequest(userId), this.getAllUsers(this.currentPage, this.pageSize))
       } else {
-        UsersAPI.followUser(userId).then(data => this.getAllUsers(this.currentPage, this.pageSize))
+        UsersAPI.followUser(userId)
+          .then(data => this.setStatusRequest(userId), this.getAllUsers(this.currentPage, this.pageSize))
       }
-      console.log('posle api')
     },
     onChangeFollow () {
       this.getAllUsers(this.currentPage, this.pageSize)
+    },
+    test (id) {
+      return this.getStatusRequest.includes(id)
     }
   },
   created () {
     this.getAllUsers(this.currentPage, this.pageSize)
-  },
-  updated () {
-    console.log('sss')
   }
 }
 </script>

@@ -5,7 +5,7 @@
       <div>{{ name }}</div>
       <div>{{ status }}</div>
       <div>
-        <button @click="clickFollowBtn">{{ isFollowMessage }}</button>
+        <button @click="clickFollowBtn" :disabled="statusRequest" >{{ isFollowMessage }}</button>
       </div>
     </div>
   </div>
@@ -21,6 +21,7 @@ export default {
     isFollowMessage: String,
     userId: Number,
     isFollowed: Boolean,
+    statusRequest: Boolean,
     toggleClickFollowBtn: {
       type: Function
     },
