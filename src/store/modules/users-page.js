@@ -33,6 +33,7 @@ const actions = ({
 
 const mutations = ({
   setUsers (state, users) {
+    console.log('set users')
     state.users = { ...users }
   },
   setCountUsers (state, count) {
@@ -45,8 +46,8 @@ const mutations = ({
     state.isCompletedRequest.push({ userId: userId, bool: false })
   }, // <--На замену
 
-  setStatusRequest (state, userId) {
-    console.log(state.isCompletedRequest)
+  setStatusRequest (state, userId) { // если false => ограничение доступа к функционалу
+    console.log('setStatusRequest: ' + userId)
     state.isCompletedRequest = state.isCompletedRequest.includes(userId) ? state.isCompletedRequest.filter(u => u !== userId) : state.isCompletedRequest.concat(userId)
   }
 })

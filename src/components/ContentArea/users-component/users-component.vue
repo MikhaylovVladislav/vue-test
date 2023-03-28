@@ -51,8 +51,9 @@ export default {
       const defPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP39OTc9h5ih7RH4EytUjjCrtJs0f4XR56vU_nOGTAA&s'
       return photo !== null ? photo : defPhoto
     },
-    getAllUsers (page, count) {
+    getAllUsers (page, count, optUserId) {
       UsersAPI.getUsers(page, count).then(data => {
+        !optUserId ? console.log('empty') : this.setStatusRequest(optUserId)
         this.setUsers(data.items)
         this.setCountUsers(data.totalCount)
       })
@@ -61,17 +62,17 @@ export default {
       this.setCurrentPage(num)
       this.getAllUsers(num, this.pageSize)
     },
-    isFollow (isFollowing = false) {
+    isFollow (isFollowing) {
       return isFollowing ? 'Убрать из друзей' : 'Добавить в друзья'
     },
     toggleClickFollowBtn (userId, isFollowing) {
       this.setStatusRequest(userId)
       if (isFollowing) {
         UsersAPI.unfollowUser(userId)
-          .then(data => this.setStatusRequest(userId), this.getAllUsers(this.currentPage, this.pageSize))
+          .then(data => this.getAllUsers(this.currentPage, this.pageSize, userId))
       } else {
         UsersAPI.followUser(userId)
-          .then(data => this.setStatusRequest(userId), this.getAllUsers(this.currentPage, this.pageSize))
+          .then(data => this.getAllUsers(this.currentPage, this.pageSize, userId))
       }
     },
     onChangeFollow () {
